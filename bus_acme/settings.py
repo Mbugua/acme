@@ -75,7 +75,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bus_acme.wsgi.application'
-
+STAR_RATINGS_RERATE = False
+STAR_RATINGS_STAR_HEIGHT = 25
+STAR_RATINGS_STAR_WIDTH = 25
+STAR_RATINGS_ANONYMOUS = True
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -135,7 +138,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_ROOT = '/media/'
-MEDIA_URL = os.path.join(MEDIA_ROOT, 'media/')
+MEDIA_URL = os.path.join(BASE_DIR, 'media/')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
