@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% load static %}
+
+{% block content %}
+<table>
+    <h5 class="ticket-number-header">Ticket No.</h5>
+    <p class="ticket-number">{{gotten_ticket.ticket_number}}</p>
+
+    <h3 class="travel-information">Operator : {{gotten_ticket.schedule.bus.bus_organisation}}</h3>
+    <h3 class="travel-information">{{gotten_ticket.schedule.bus.route.departure_location}} &rarr;
+        {{gotten_ticket.schedule.bus.route.destination_location}} </h3>
+    <h3 class="travel-information">{{gotten_ticket.schedule.departure_time|date:"j N o"}}</h3>
+    <h3 class="travel-information">Departure Time : {{gotten_ticket.schedule.departure_time|date:"g:i A"}}</h3>
+
+    <tr>
+        <th colspan=2>{{gotten_ticket.first_name}} {{gotten_ticket.last_name}}</th>
+    </tr>
+    <tr>
+        <td>{{gotten_ticket.phone_number}}</td>
+
+        <td>{{gotten_ticket.email}}</td>
+    </tr>
+</table>
+
+<h3 class="payment-information">Payment Information</h3>
+<h5 class="transaction-code">Transaction ID: <span id="mpesa-code">{{gotten_ticket.transaction_code}}</span></h5>
+
+{% endblock %}

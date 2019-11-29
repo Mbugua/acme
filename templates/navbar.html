@@ -1,0 +1,24 @@
+{% load bootstrap4 %}
+
+{% load static %}
+
+<body>
+    <nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse">
+        <div class="container">
+            <div class="navbar-inner nav">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" data-target="#navbar-main" data-toggle="collapse"
+                        type="button" area-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'index' %}">
+                        <img src="{% static 'img/logo.png' %}" alt="Bookify" title="Bookify" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>

@@ -1,0 +1,115 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load ratings %}
+
+{% block content %}
+<div class="theme-hero-area-body">
+    <div class="_pt-250 _pb-200 _pv-mob-50">
+        <div class="container">
+
+            <div class="update-route-container">
+                <div class="route">
+
+                    <div class="text-xl">
+                        <span>{{search_departure_location}}</span>
+                        <span><i class="fa fa-long-arrow-right"></i></span>
+                        <span>{{search_arrival_location}}</span>
+                    </div>
+
+                    <div class="text-xl">{{convert_to_date}}</div>
+                </div>
+                <div class="container-fluid results-page">
+
+                    <div class="row results">
+
+                        <div class="container">
+
+                            {% if buses %}
+
+                            <span> {{buses|length}} buses found </span>
+
+                            {% endif %}
+
+                            {% if no_scheduled_bus_message %}
+
+                            <span>{{no_scheduled_bus_message}}</span>
+
+                            {% endif %}
+
+                            {% if no_route_message %}
+
+                            <span>{{no_route_message}}</span>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+                {% if buses %}
+
+                <div class="container-fluid scheduleBar">
+                    <div class="row">
+                        <div class="container">
+
+                            <ul class="cat">
+                                <li class="bus-companies">Bus Companies</li>
+
+                                <li class="departure">Departure</li>
+
+                                <li class="duration">Estimated Duration</li>
+
+                                <li class="seats hidden-xs hidden-sm">Seats</li>
+
+                                <li class="price">Price</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid busSearchResults">
+                    <div class="row items">
+                        <div class="container">
+
+                            <ul class="res">
+
+                                {% for bus in buses %}
+                                <li class="single-items">
+                                    <div class="departure-card">
+                                        <section id="bus">{{bus.bus.bus_organisation}}
+                                        </section>
+                                        <section id="departure">{{bus.departure_time | date:"g:i A"}}</section>
+                                        <section id="duration">{{estimation_duration}}</section>
+                                        <section id="seats" class="hidden-xs hidden-sm">{{bus.bus.capacity}}</section>
+                                        <section id="price">Kes {{bus.price}}</section>
+                                    </div>
+                                    <div class="container-fluid">
+
+                                        <div class="row departure-row">
+
+                                            <div class="hidden-xs hidden-sm col-md-9 col-lg-9">
+                                                <div class="departure-card-footer">
+                                                    <span>{% ratings bus.bus.bus_organisation %} </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                                <a href="{%url 'bus_details' bus.id%}">
+                                                    <button class="btn btn-success search-button">Select</button>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
