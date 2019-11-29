@@ -47,7 +47,7 @@ DEBUG=True
 
 ```
 psql
-CREATE DATABASE buupass_acme
+CREATE DATABASE bupass_acme
 ```
 9. Change the database informatioin in `/settings.py`
 Local setup
