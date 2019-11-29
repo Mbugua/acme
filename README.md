@@ -25,7 +25,8 @@ https://bus-acme.herokuapp.com/
 ## Setup/Installation Requirements
 
 ### Prerequisites
-* Python 3.6.2
+* Python 3.7.5
+* Django 2.2.5
 * Virtual environment
 * Postgres Database
 * Internet
