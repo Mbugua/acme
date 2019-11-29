@@ -1,6 +1,6 @@
-# acme
+# Acme
 Bus Booking Application developed in Python Django.
 
-website
+# Website
 ---
 https://bus-acme.herokuapp.com/
