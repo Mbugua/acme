@@ -64,9 +64,12 @@ DATABASES = {
 ```
 10. Run `./manage.py runserver` or `python3.6 manage.py runserver` to run the application
 
+11. TO DO
+- Mobile payments
+- Send SMS notification
+- Finalize Tickets
 ```
 ## Known Bugs
-
 * open ticket :P
 
 ## Technologies Used
