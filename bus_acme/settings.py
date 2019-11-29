@@ -75,11 +75,11 @@ WSGI_APPLICATION = 'bus_acme.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME',  ''),
-        'USER': os.environ.get('DB_USER', ''),
-        'PASSWORD': os.environ.get('DB_PASS', ''),
-        'HOST': os.environ.get('HOST', ''),
-        'PORT': os.environ.get('PORT', ''),
+        'NAME': os.environ.get('DB_NAME',  'bus_acme'),
+        'USER': os.environ.get('DB_USER', 'dev'),
+        'PASSWORD': os.environ.get('DB_PASS', 'secret'),
+        'HOST': os.environ.get('HOST', 'localhost'),
+        'PORT': os.environ.get('PORT', '5432'),
 
     }
 }
