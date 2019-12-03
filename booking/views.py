@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
-from .models import BusOrganisation, Route, Bus, Schedule, Ticket
 from datetime import datetime, date
+from .models import BusOrganisation, Route, Bus, Schedule, Ticket
 from .forms import TicketForm
+from .utils import render_to_pdf
 import uuid
 import phonenumbers
 # Create your views here.
@@ -195,3 +196,30 @@ def mobile_payment(request, ticket_id):
 
     except AfricasTalkingGatewayException as e:
         print("Received error response: %s" % str(e))
+
+
+def generate_view(request, ticket_id):
+
+    gotten_ticket = Ticket.get_single_ticket(ticket_id)
+
+    pdf = render_to_pdf('pdf/ticket.html', {'gotten_ticket': gotten_ticket})
+
+    if pdf:
+
+        response = HttpResponse(pdf, content_type='application/pdf')
+
+        filename = "Ticket_%s.pdf" % (gotten_ticket.ticket_number)
+
+        content = "inline; filename='%s'" % (filename)
+
+        download = request.GET.get("download")
+
+        if download:
+
+            content = "attachment; filename='%s'" % (filename)
+
+        response['Content-Disposition'] = content
+
+        return response
+
+    return HttpResponse('Not Found')
