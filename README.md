@@ -2,12 +2,12 @@
 Bus Booking Application developed in Python Django.
 
 # Website
-https://bus-acme.herokuapp.com/
+https://acme-bus.herokuapp.com/
 
 ## By **[Lee Mbugua](https://github.com/Mbugua)**
 
 ## Description
-[This] (https://bus-acme.herokuapp.com/) is a web application that allows users to search for buses by entering their starting point and destination. The results list has buses arranged with the cheapest bus at the top of the list. The user can select a bus and book a seat in the bus.
+[This] (https://acme-bus.herokuapp.com/) is a web application that allows users to search for buses by entering their starting point and destination. The results list has buses arranged with the cheapest bus at the top of the list. The user can select a bus and book a seat in the bus.
 
 ## User Story:
 * search for a bus by entering the departure location and arrival location
