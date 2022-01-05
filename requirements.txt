@@ -24,7 +24,7 @@ psycopg2==2.8.4
 psycopg2-binary==2.8.4
 PyPDF2==1.26.0
 pytz==2019.3
-reportlab==3.5.32
+reportlab==3.5.55
 requests==2.22.0
 schema==0.7.1
 six==1.13.0
