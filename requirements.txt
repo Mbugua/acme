@@ -22,7 +22,7 @@ phonenumbers==8.11.0
 Pillow==6.2.1
 psycopg2==2.8.4
 psycopg2-binary==2.8.4
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 pytz==2019.3
 reportlab==3.5.32
 requests==2.22.0
